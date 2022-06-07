@@ -1,0 +1,11 @@
+{
+    "name": "bonnafous/telecommande",
+    "description": "Etude du pattern commande à travers l'exemple d'une télécommande connectant plusieurs objets différents (livre design patterns - head first)",
+    "authors": [
+        {
+            "name": "François Bonnafous",
+            "email": "francois.bonnafous@hotmail.fr"
+        }
+    ],
+    "require": {}
+}
