@@ -2,7 +2,7 @@
 
     namespace App\Commandes\Lampe;
 
-    class CommandeAllumerLampe implements \App\Commandes\Commande {
+    class CommandeEteindreLampe implements \App\Commandes\Commande {
 
         public \App\Objets\Lampe $lampe;
 
