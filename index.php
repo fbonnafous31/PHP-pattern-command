@@ -1,16 +1,16 @@
 <?php
 
-use App\Commandes\Lampe\CommandeAllumerLampe;
 use App\Telecommande;
 use App\TelecommandeSimple;
 
     require_once('libraries/autoload.php');
 
+    echo "<b>Télécommande Simple</b> <br>";
     $telecommande = new TelecommandeSimple();
-    $lampe = new App\Objets\Lampe();
-    $porteGarage = new App\Objets\PorteGarage();
+    $lampe = new App\Objets\Lampe('Séjour');
+    $porteGarage = new App\Objets\Porte('Garage');
     $lampeAllumee = new \App\Commandes\Lampe\CommandeAllumerLampe($lampe);
-    $porteGarageOuverte = new \App\Commandes\PorteGarage\CommandeOuvrirPorteGarage($porteGarage);
+    $porteGarageOuverte = new \App\Commandes\Porte\CommandeOuvrirPorte($porteGarage);
 
     $telecommande->setCommande($lampeAllumee);
     $telecommande->boutonPresse();
@@ -18,56 +18,40 @@ use App\TelecommandeSimple;
 
     $telecommande->setCommande($porteGarageOuverte);
     $telecommande->boutonPresse();
-    echo "<br><br>";
+    echo "<br><br><br>";
 
     $telecommande = new Telecommande();
-    $lampeSejour = new \App\Objets\Lampe();
-    $lampeCuisine = new \App\Objets\Lampe();
-    $ventilateurSejour = new \App\Objets\Ventilateur();
-    $porteGarage = new \App\Objets\PorteGarage();
-    $stereoSejour = new \App\Objets\Stereo();
+    $lampeSejour = new \App\Objets\Lampe('Séjour');
+    $lampeCuisine = new \App\Objets\Lampe('Cuisine');
+    $ventilateurSejour = new \App\Objets\Ventilateur('Séjour');
+    $porteGarage = new \App\Objets\Porte('Garage');
+    $stereoSejour = new \App\Objets\Stereo('Séjour');
 
     $lampeSejourAllumee = new \App\Commandes\Lampe\CommandeAllumerLampe($lampeSejour);
     $lampeCuisineAllumee = new \App\Commandes\Lampe\CommandeAllumerLampe($lampeCuisine);
     $ventilateurSejourAllume = new \App\Commandes\Ventilateur\CommandeAllumerVentilateur($ventilateurSejour);
-    $porteGarageOuverte = new \App\Commandes\PorteGarage\CommandeOuvrirPorteGarage($porteGarage);
+    $porteGarageOuverte = new \App\Commandes\Porte\CommandeOuvrirPorte($porteGarage);
     $stereoSejourAllumee = new \App\Commandes\Stereo\CommandeAllumerStereoAvecCD($stereoSejour);
 
     $lampeSejourEteinte = new \App\Commandes\Lampe\CommandeEteindreLampe($lampeSejour);
     $lampeCuisineEteinte = new \App\Commandes\Lampe\CommandeEteindreLampe($lampeCuisine);
     $ventilateurSejourEteint = new \App\Commandes\Ventilateur\CommandeEteindreVentilateur($ventilateurSejour);
-    $porteGarageFermee = new \App\Commandes\PorteGarage\CommandeFermerPorteGarage($porteGarage);
-    $steraoSejourEteinte = new \App\Commandes\Stereo\CommandeEteindreStereoAvecCD($stereoSejour);
+    $porteGarageFermee = new \App\Commandes\Porte\CommandeFermerPorte($porteGarage);
+    $stereoSejourEteinte = new \App\Commandes\Stereo\CommandeEteindreStereo($stereoSejour);
 
     $telecommande->setCommande(0, $lampeSejourAllumee, $lampeSejourEteinte);
     $telecommande->setCommande(1, $lampeCuisineAllumee, $lampeCuisineEteinte);
     $telecommande->setCommande(2, $ventilateurSejourAllume, $ventilateurSejourEteint);
     $telecommande->setCommande(3, $porteGarageOuverte, $porteGarageFermee);
-    $telecommande->setCommande(4, $stereoSejourAllumee, $steraoSejourEteinte);
+    $telecommande->setCommande(4, $stereoSejourAllumee, $stereoSejourEteinte);
 
-    echo "Séjour : <br>";
-    $telecommande->boutonMarchePresse(0);
-    echo " / ";
-    $telecommande->boutonArretPresse(0);
-    echo "<br>";
-    $telecommande->boutonMarchePresse(2);
-    echo " / ";
-    $telecommande->boutonArretPresse(2);
-    echo "<br>";
-    $telecommande->boutonMarchePresse(4);
-    echo " / ";
-    $telecommande->boutonArretPresse(4);
-
-
-    echo "<br><br>Cuisine : <br>";
-    $telecommande->boutonMarchePresse(1);
-    echo " / ";
-    $telecommande->boutonArretPresse(1);
-
-    echo "<br><br>Garage : <br>";
-    $telecommande->boutonMarchePresse(3);
-    echo " / ";
-    $telecommande->boutonArretPresse(3);
-
+    echo "<b>Télécommande multi-canaux</b> <br>";
+    for ($i = 0; $i < 5; $i++) {
+        echo "Commande $i <br>" ;
+        $telecommande->boutonMarchePresse($i);
+        echo '<br>';
+        $telecommande->boutonArretPresse($i);
+        echo '<br><br>';
+    }
 
 ?>

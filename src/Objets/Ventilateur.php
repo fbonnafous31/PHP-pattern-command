@@ -4,12 +4,18 @@
 
     class Ventilateur {
 
+        private $piece;
+
+        public function __construct($piece) {
+            $this->piece = $piece;            
+        }
+
         public function marche() {
-            echo "Ventilateur allumé";
+            echo $this->piece . " : ventilateur allumé";
         }
 
         public function arret() {
-            echo "Ventilateur éteint";
+            echo $this->piece . " : ventilateur éteint";
         }
 
     }

@@ -2,7 +2,7 @@
 
     namespace App\Commandes\Stereo;
 
-    class CommandeEteindreStereoAvecCD implements \App\Commandes\Commande {
+    class CommandeEteindreStereo implements \App\Commandes\Commande {
 
         public \App\Objets\Stereo $stereo;
 
@@ -12,8 +12,6 @@
 
         public function executer() {
             $this->stereo->arret();
-            $this->stereo->setCD();
-            $this->stereo->setVolume(11);
         }
 
     }

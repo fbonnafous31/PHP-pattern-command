@@ -2,7 +2,7 @@
 
     namespace App\Objets;
 
-    class Lampe {
+    class Porte {
 
         private $piece;
 
@@ -10,12 +10,12 @@
             $this->piece = $piece;            
         }
 
-        public function marche() {
-            echo $this->piece . " : lampe allumée";
+        public function ouvrir() {
+            echo $this->piece . " : porte ouverte";
         }
 
-        public function arret() {
-            echo $this->piece . " : lampe éteinte";
+        public function fermer() {
+            echo $this->piece . " : porte fermée";
         }
 
     }

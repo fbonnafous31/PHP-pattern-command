@@ -4,12 +4,18 @@
 
     class Stereo {
 
+        private $piece;
+
+        public function __construct($piece) {
+            $this->piece = $piece;            
+        }
+
         public function marche() {
-            echo "Stereo allumée";
+            echo $this->piece . " : stéréo allumée";
         }
 
         public function arret() {
-            echo "Stereo éteinte";
+            echo $this->piece . " : stéréo éteinte";
         }
 
         public function setCD(){
@@ -18,6 +24,11 @@
 
         public function setVolume($volume) {
             $this->volume = $volume;
+            echo " - volume à " . $volume;
+        }
+
+        public function getVolume() {
+            return $this->volume;
         }
 
     }
