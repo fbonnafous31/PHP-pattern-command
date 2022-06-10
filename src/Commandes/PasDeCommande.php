@@ -4,8 +4,8 @@
 
     class PasDeCommande implements Commande {
 
-        public function executer() {
-        }
+        public function executer(){}
+        public function annuler(){}
         
     }
 

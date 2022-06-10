@@ -5,6 +5,7 @@
     interface Commande {
 
         public function executer();
+        public function annuler();
 
     }
 

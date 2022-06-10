@@ -4,8 +4,7 @@
 
     class Telecommande {
 
-        public $commandesMarche;
-        public $commandesArret;
+        public \App\Commandes\Commande $commandeAnnulation;
 
         public function __construct() {
             $pasDeCommandes = new \App\Commandes\PasDeCommande();
@@ -13,6 +12,7 @@
                 $this->commandesMarche[$i] = $pasDeCommandes;
                 $this->commandesArret[$i] = $pasDeCommandes;
             }
+            $this->commandeAnnulation = $pasDeCommandes;
         }
 
         public function setCommande($emplacement, \App\Commandes\Commande $commandeMarche, \App\Commandes\Commande $commandeArret) {
@@ -22,10 +22,16 @@
 
         public function boutonMarchePresse($emplacement) {
             $this->commandesMarche[$emplacement]->executer();
+            $this->commandeAnnulation = $this->commandesMarche[$emplacement];
         }
 
         public function boutonArretPresse($emplacement) {
             $this->commandesArret[$emplacement]->executer();
+            $this->commandeAnnulation = $this->commandesArret[$emplacement];
+        }
+
+        public function boutonAnnulPresse() {
+            $this->commandeAnnulation->annuler();
         }
 
     }

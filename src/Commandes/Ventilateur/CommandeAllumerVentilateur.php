@@ -14,6 +14,8 @@
             $this->ventilateur->marche();
         }
 
+        public function annuler(){}
+
     }
 
 ?>

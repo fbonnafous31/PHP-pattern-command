@@ -14,6 +14,8 @@
             $this->porte->fermer();
         }
 
+        public function annuler(){}
+
     }
 
 ?>

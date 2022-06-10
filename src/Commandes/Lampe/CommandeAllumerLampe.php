@@ -14,6 +14,10 @@
             $this->lampe->marche();
         }
 
+        public function annuler() {
+            $this->lampe->arret();
+        }
+
     }
 
 ?>

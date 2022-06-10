@@ -14,6 +14,8 @@
             $this->ventilateur->arret();
         }
 
+        public function annuler(){}
+
     }
 
 ?>

@@ -14,6 +14,8 @@
             $this->stereo->arret();
         }
 
+        public function annuler(){}
+
     }
 
 ?>

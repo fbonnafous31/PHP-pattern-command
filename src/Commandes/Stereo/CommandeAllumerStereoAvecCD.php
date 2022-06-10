@@ -16,6 +16,8 @@
             $this->stereo->setVolume(11);
         }
 
+        public function annuler(){}
+
     }
 
 ?>

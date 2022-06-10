@@ -5,7 +5,7 @@ use App\TelecommandeSimple;
 
     require_once('libraries/autoload.php');
 
-    echo "<b>Télécommande Simple</b> <br>";
+    echo "<b>Télécommande simple</b> <br>";
     $telecommande = new TelecommandeSimple();
     $lampe = new App\Objets\Lampe('Séjour');
     $porteGarage = new App\Objets\Porte('Garage');
@@ -45,7 +45,7 @@ use App\TelecommandeSimple;
     $telecommande->setCommande(3, $porteGarageOuverte, $porteGarageFermee);
     $telecommande->setCommande(4, $stereoSejourAllumee, $stereoSejourEteinte);
 
-    echo "<b>Télécommande multi-canaux</b> <br>";
+    echo "<b>Télécommande évoluée</b> <br>";
     for ($i = 0; $i < 5; $i++) {
         echo "Commande $i <br>" ;
         $telecommande->boutonMarchePresse($i);
@@ -53,5 +53,18 @@ use App\TelecommandeSimple;
         $telecommande->boutonArretPresse($i);
         echo '<br><br>';
     }
+
+    echo "<b>Télécommande option d'annulation</b> <br>";
+    $telecommande->boutonMarchePresse(0);
+    echo "<br>";
+    $telecommande->boutonArretPresse(0);
+    echo "<br>";
+    $telecommande->boutonAnnulPresse();
+    echo "<br>";
+    $telecommande->boutonArretPresse(0);
+    echo "<br>";
+    $telecommande->boutonMarchePresse(0);
+    echo "<br>";
+    $telecommande->boutonAnnulPresse();
 
 ?>
