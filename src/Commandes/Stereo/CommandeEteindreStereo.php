@@ -14,7 +14,11 @@
             $this->stereo->arret();
         }
 
-        public function annuler(){}
+        public function annuler(){
+            $this->stereo->marche();
+            $this->stereo->setCD();
+            $this->stereo->setVolume(11);
+        }
 
     }
 

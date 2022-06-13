@@ -2,11 +2,12 @@
 
     namespace App\Commandes\Ventilateur;
 
-    use \App\Objets\Ventilateur;
+    use App\Objets\Ventilateur;
 
-    class CommandeEteindreVentilateur implements \App\Commandes\Commande {
+    class CommandeVentilateurRapide implements \App\Commandes\Commande {
 
         public \App\Objets\Ventilateur $ventilateur;
+        public $derniereVitesse;
 
         public function __construct(\App\Objets\Ventilateur $ventilateur) {
             $this->ventilateur = $ventilateur;
@@ -14,7 +15,7 @@
 
         public function executer() {
             $this->derniereVitesse = $this->ventilateur->getVitesse();
-            $this->ventilateur->arret();
+            $this->ventilateur->rapide();
         }
 
         public function annuler(){

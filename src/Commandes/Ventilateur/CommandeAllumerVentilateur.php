@@ -14,7 +14,9 @@
             $this->ventilateur->marche();
         }
 
-        public function annuler(){}
+        public function annuler(){
+            $this->ventilateur->arret();
+        }
 
     }
 

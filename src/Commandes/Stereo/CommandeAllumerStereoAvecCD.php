@@ -16,7 +16,9 @@
             $this->stereo->setVolume(11);
         }
 
-        public function annuler(){}
+        public function annuler(){
+            $this->stereo->arret();
+        }
 
     }
 

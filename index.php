@@ -66,5 +66,25 @@ use App\TelecommandeSimple;
     $telecommande->boutonMarchePresse(0);
     echo "<br>";
     $telecommande->boutonAnnulPresse();
+    echo '<br><br>';
+
+    echo "<b>Télécommande option d'annulation (gestion du ventilateur)</b> <br>";
+    $ventilateurMoyen  = new \App\Commandes\Ventilateur\CommandeVentilateurMoyen($ventilateurSejour);
+    $telecommande->setCommande(0, $ventilateurMoyen, $ventilateurSejourEteint);
+
+    echo "<b>Ventilateur vitesse moyenne</b> <br>";
+    $telecommande->boutonMarchePresse(0);
+    echo "<br>";
+    $telecommande->boutonArretPresse(0);
+    echo "<br>";
+    $telecommande->boutonAnnulPresse();
+    echo "<br>";
+
+    echo "<b>Ventilateur vitesse rapide</b> <br>";
+    $ventilateurRapide = new \App\Commandes\Ventilateur\CommandeVentilateurRapide($ventilateurSejour);
+    $telecommande->setCommande(1, $ventilateurRapide, $ventilateurSejourEteint);
+    $telecommande->boutonMarchePresse(1);
+    echo "<br>";
+    $telecommande->boutonAnnulPresse(); 
 
 ?>
